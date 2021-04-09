@@ -1,0 +1,141 @@
+/* REGOLE GENERALI */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(180deg, #009688 13%, #DBDBD4 13%);
+}
+
+/* Contenitore Principale */
+.container{
+  display: flex;
+  width: 72%;
+  height: 95vh;
+  margin: 2.5vh auto;
+  background-color: white;
+  box-shadow: 0px 0px 4px #888;
+}
+
+
+/* Menu di snistra */
+.left-menu{
+  width: 30%;
+  background-color: yellow
+}
+
+/* Linea di header*/
+
+.top-line{
+  height: 60px;
+  width: 100%;
+  background-color: #EDEDED;
+}
+
+
+.container-icon{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.my-logo img{
+  width: 75px;
+  height: 60px;
+  border-radius: 50%;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.icons{
+  font-size: 20px;
+  padding: 16px 16px;
+  color: #919191;
+  align-self: center;
+}
+
+.icons i{
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+/* Avviso notifiche spente */
+.notifications{
+  height: 80px;
+  width: 100%;
+  background-color: #A5DFFE;
+  cursor: pointer;
+}
+
+.container-notifications{
+  display: flex;
+  flex-wrap: nowrap;
+
+}
+
+.i-notific{
+  background-color: white;
+  color: #A5DFFE;
+  border-radius: 50%;
+  font-size: 24px;
+  padding: 13px 12px 14px 13px;
+  margin: 13px 12px 14px 13px;
+}
+
+.text-notific{
+  margin: 18px 12px 14px 13px;
+  color: rgb(92, 114, 126);
+}
+
+.text-notific p:first-child{
+  font-size: 20px;
+}
+
+.text-notific p:last-child:hover{
+  text-decoration: underline;
+}
+
+
+/* Trovare chat per nome di Persona */
+
+.container-search{
+  display: flex;
+  flex-wrap: nowrap;
+  height: 50px;
+  width: 100%;
+  background-color: #EDEDED;
+}
+
+.search{
+  width: 94%;
+  margin: 0 3%;
+  background-color: white;
+  border-radius: 18px;
+  align-self: center;
+  padding: 8px;
+}
+
+.search i{
+  margin-left: 10px;
+  color: #dfdddd;
+  cursor: pointer;
+}
+
+.search input{
+  width: 80%;
+  margin-left: 30px;
+  border: none;
+}
+
+
+/* Menu di destra */
+.right-menu{
+  width: 70%;
+  background-color: red;
+}
+
+.border{
+  border-left: 1px solid lightgrey;
+}

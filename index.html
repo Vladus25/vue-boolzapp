@@ -25,7 +25,7 @@
         <!-- Menu di sinistra -->
         <div class="left-menu">
 
-          <!-- LInea di header -->
+          <!-- Linea di header -->
           <div class="top-line">
             <div class="container-icon">
 
@@ -58,12 +58,31 @@
             </div>
           </div>
 
-          <!-- Trovare chat per nome di Persona -->
+          <!-- Trovare chat per nome di Contatto -->
           <div class="container-search">
             <div class="search">
               <i class="fas fa-search"></i>
               <input type="text" name="" value="" placeholder="Search or start new chat">
             </div>
+          </div>
+
+          <!-- Chat con miei Contatti -->
+          <div class="container-chat">
+            <ul>
+              <li v-for="(contact, index) in contacts">
+
+                <div class="img-chat">
+                  <img :src="contact.avatar" alt="">
+                </div>
+
+                <div class="info-chat">
+                  <h4> {{contact.name}} </h4>
+                  <p> {{contact.messages[contact.messages.length -  1 ].text.slice(0,50)}}</p>
+                </div>
+
+              </li>
+
+            </ul>
 
           </div>
 
@@ -71,9 +90,28 @@
 
         <!-- Chat di destra -->
         <div class="right-menu">
-          <div class="top-line border">
+            <!-- Linea di header 2 -->
+            <div class="top-line border">
 
-          </div>
+            </div>
+
+            <!-- Messaggi con Contatto -->
+            <div v-for="(contact, index) in contacts"  class="container-all-message">
+              <div class="abc message-out">
+                <p class="green">asdasd</p>
+              </div>
+
+              <div class="abc message-in">
+                <p class="white">asdaasdadasd</p>
+              </div>
+
+            </div>
+
+            <!-- Scrivere nuovo messaggio -->
+            <div class="down-line">
+
+            </div>
+
         </div>
 
       </div>

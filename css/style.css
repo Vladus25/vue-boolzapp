@@ -23,7 +23,9 @@ body{
 /* Menu di snistra */
 .left-menu{
   width: 30%;
-  background-color: yellow
+  min-width: 350px;
+  min-height: 500px;
+  background-color: white;
 }
 
 /* Linea di header*/
@@ -98,7 +100,7 @@ body{
 }
 
 
-/* Trovare chat per nome di Persona */
+/* Trovare chat per nome di Contatto */
 
 .container-search{
   display: flex;
@@ -106,6 +108,7 @@ body{
   height: 50px;
   width: 100%;
   background-color: #EDEDED;
+  border-bottom: 1px solid lightgrey;
 }
 
 .search{
@@ -129,13 +132,107 @@ body{
   border: none;
 }
 
+/* Chat con miei Contatti */
+.container-chat{
+
+}
+
+.container-chat .img-chat img{
+  width: 49px;
+  height: 49px;
+  border-radius: 50%;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.container-chat ul{
+  list-style: none;
+  height: 100px;
+}
+
+.container-chat ul li{
+  display: flex;
+  width: 100%;
+  padding: 15px 15px 0 15px;
+  cursor: pointer;
+}
+
+.container-chat ul li:hover{
+  background-color: #EDEDED;
+}
+
+
+.info-chat{
+  display: flex;
+  flex-basis: auto;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  min-width: 0;
+  border-bottom: 1px solid #EDEDED;
+}
+
+
 
 /* Menu di destra */
 .right-menu{
+  position: relative;
   width: 70%;
-  background-color: red;
+  min-width: 400px;
+  min-height: 500px;
+  background-image: url("../img/sfondo-chat.png");
+  background-size:  auto;
+}
+
+.container-all-message{
+  display: flex;
+  flex-direction: column;
+}
+
+.container-all-message p{
+  font-size: 20px;
+  /* background-color: blue; */
+  margin: 20px 10% 0 10%;
+  padding: 10px;
+  border-radius: 18px;
+
+}
+
+.abc{
+
+}
+
+
+.down-line{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+  background-color: #EDEDED;
 }
 
 .border{
   border-left: 1px solid lightgrey;
+}
+
+/* CSS VUE */
+.white{
+  background-color: white;
+}
+
+.green{
+  background-color: green;
+
+}
+
+
+.message-in{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.message-out{
+  display: flex;
+  justify-content: flex-end;
 }

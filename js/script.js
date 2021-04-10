@@ -48,7 +48,7 @@ function initVue() {
                         },
                         {
                             date: '20/03/2020 16:35:00',
-                            text: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                            text: 'Mi piacerebbe ma devo andare a fare la spesa.sdadasdasdasdadasd',
                             status: 'sent'
                         }
                     ],
@@ -98,11 +98,12 @@ function initVue() {
 
     methods: {
 
-      // getContact: function (index) {
-      //   this.activeContact=this.contacts[index];
-      // }
+      getContact: function (index) {
+        this.activeContact=this.contacts[index];
+      }
 
     }
+
 
   });
 

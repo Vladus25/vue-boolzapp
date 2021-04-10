@@ -9,6 +9,10 @@ body{
   background: linear-gradient(180deg, #009688 13%, #DBDBD4 13%);
 }
 
+.asd{
+  background: linear-gradient(180deg, #009688 13%, #DBDBD4 13%);
+}
+
 /* Contenitore Principale */
 .container{
   display: flex;
@@ -24,7 +28,7 @@ body{
 .left-menu{
   width: 30%;
   min-width: 350px;
-  min-height: 500px;
+  min-height: 650px;
   background-color: white;
 }
 
@@ -36,6 +40,9 @@ body{
   background-color: #EDEDED;
 }
 
+.border{
+  border-left: 1px solid lightgrey;
+}
 
 .container-icon{
   display: flex;
@@ -54,7 +61,7 @@ body{
 .icons{
   font-size: 20px;
   padding: 16px 16px;
-  color: #919191;
+  color: rgb(145, 145, 145);
   align-self: center;
 }
 
@@ -122,7 +129,7 @@ body{
 
 .search i{
   margin-left: 10px;
-  color: #dfdddd;
+  color: rgb(145, 145, 145);
   cursor: pointer;
 }
 
@@ -133,6 +140,7 @@ body{
 }
 
 /* Chat con miei Contatti */
+
 .container-chat{
 
 }
@@ -172,6 +180,11 @@ body{
   border-bottom: 1px solid #EDEDED;
 }
 
+.name-date{
+  display: flex;
+  justify-content: space-between;
+}
+
 
 
 /* Menu di destra */
@@ -179,29 +192,45 @@ body{
   position: relative;
   width: 70%;
   min-width: 400px;
-  min-height: 500px;
+  min-height: 650px;
   background-image: url("../img/sfondo-chat.png");
   background-size:  auto;
+  overflow: auto;
 }
 
+/* Contatto corrente */
+.current-contact{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+
+.contact-info{
+  display: flex;
+  align-items: center;
+}
+
+.contact-info img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 15px;
+}
+
+
+.contact-info-2 i{
+ font-size: 20px;
+ color: rgb(145, 145, 145);
+ cursor: pointer;
+ padding: 0 20px;
+}
+
+/* Messaggi con Contatto */
 .container-all-message{
   display: flex;
   flex-direction: column;
 }
-
-.container-all-message p{
-  font-size: 20px;
-  /* background-color: blue; */
-  margin: 20px 10% 0 10%;
-  padding: 10px;
-  border-radius: 18px;
-
-}
-
-.abc{
-
-}
-
 
 .down-line{
   position: absolute;
@@ -212,20 +241,63 @@ body{
   background-color: #EDEDED;
 }
 
-.border{
-  border-left: 1px solid lightgrey;
+.time{
+  display: flex;
+  justify-content: flex-end;
+  font-size: 15px;
+  color: rgb(145, 145, 145);
 }
+
+.spunte{
+  width: 15px;
+  margin: 0 5px;
+}
+
+/* Scrivere nuovo messaggio */
+.telecommunication{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.telecommunication i{
+  font-size: 24px;
+  color: rgb(145, 145, 145);
+  padding: 0px 10px;
+}
+
+.telecommunication input{
+  width: 85%;
+  background-color: white;
+  border-radius: 18px;
+  align-self: center;
+  padding: 12px;
+  border: none;
+}
+
 
 /* CSS VUE */
 .white{
+  font-size: 16px;
+  margin: 20px 10% 0 10%;
+  padding: 10px;
+  border-radius: 18px;
+  max-width: 35%;
+  min-width: 150px;
   background-color: white;
 }
 
+
 .green{
-  background-color: green;
-
+  font-size: 16px;
+  margin: 20px 10% 0 10%;
+  padding: 10px;
+  border-radius: 18px;
+  max-width: 35%;
+  min-width: 150px;
+  background-color: rgb(220, 250, 198);
 }
-
 
 .message-in{
   display: flex;

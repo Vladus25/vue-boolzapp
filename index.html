@@ -18,7 +18,7 @@
   </head>
   <body>
 
-    <div id="app" class="">
+    <div id="app" class="asd">
 
       <div class="container">
 
@@ -69,15 +69,23 @@
           <!-- Chat con miei Contatti -->
           <div class="container-chat">
             <ul>
-              <li v-for="(contact, index) in contacts">
+              <li v-for="(contact, index) in contacts" @click="getContact(index)">
 
                 <div class="img-chat">
                   <img :src="contact.avatar" alt="">
                 </div>
 
                 <div class="info-chat">
-                  <h4> {{contact.name}} </h4>
-                  <p> {{contact.messages[contact.messages.length -  1 ].text.slice(0,50)}}</p>
+
+                  <div class="name-date">
+                    <h4>{{contact.name}}</h4>
+                    <p>{{contact.messages[contact.messages.length - 2].date.slice(10, 16)}}</p>
+                  </div>
+
+                  <div>
+                    <p>{{contact.messages[contact.messages.length -  1 ].text.slice(0, 50)}}</p>
+                  </div>
+
                 </div>
 
               </li>
@@ -88,28 +96,55 @@
 
         </div>
 
-        <!-- Chat di destra -->
+        <!-- Menu di destra -->
         <div class="right-menu">
-            <!-- Linea di header 2 -->
-            <div class="top-line border">
 
+            <!-- Contatto corrente -->
+            <div class="top-line border">
+              <div class="current-contact">
+
+                <div class="contact-info">
+                  <img :src="activeContact.avatar" alt="">
+                  <h4>{{activeContact.name}}</h4>
+                </div>
+
+                <div class="contact-info-2">
+                  <i class="fas fa-search"></i>
+                  <i class="fas fa-ellipsis-v"></i>
+                </div>
+
+              </div>
             </div>
 
             <!-- Messaggi con Contatto -->
-            <div v-for="(contact, index) in contacts"  class="container-all-message">
-              <div class="abc message-out">
-                <p class="green">asdasd</p>
-              </div>
+            <div v-for="message in activeContact.messages"  class="container-all-message">
 
-              <div class="abc message-in">
-                <p class="white">asdaasdadasd</p>
-              </div>
+                <div v-if="message.status == 'sent'">
+                  <div class="message-out">
+                    <div class="green">
+                      <p>{{message.text}}</p>
+                      <p class="time">{{message.date.slice(10, 16)}} <img class="spunte" src="img/spunte.png" alt=""></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div v-else class="message-in">
+                  <div class="white">
+                    <p>{{message.text}}</p>
+                    <p class="time">{{message.date.slice(10, 16)}} <img class="spunte" src="img/spunte.png" alt=""></p>
+                  </div>
+                </div>
 
             </div>
 
             <!-- Scrivere nuovo messaggio -->
             <div class="down-line">
-
+              <div class="telecommunication">
+                <i class="far fa-grin"></i>
+                <i class="fas fa-paperclip"></i>
+                <input type="text" name="" value="" placeholder="Enter message">
+                <i class="fas fa-microphone"></i>
+              </div>
             </div>
 
         </div>

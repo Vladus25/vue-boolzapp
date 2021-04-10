@@ -5,7 +5,9 @@ function initVue() {
     el: '#app',
     data:{
             'myText': "",
-            'newMessage':{text:'', status:'sent', date:''},
+            'search': "",
+            'showMenu': false,
+            'newMessage':{text:'', status:'sent', time:''},
             'newAnswer':{text:'ok', status:'received'},
             'activeContact': false,
             'contacts': [
@@ -15,17 +17,20 @@ function initVue() {
                     visible: true,
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
+                            date: '10/01/2020',
+                            time: '15:30',
                             text: 'Hai portato a spasso il cane?',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 15:50:00',
+                            date: '10/01/2020',
+                            time: '15:50',
                             text: 'Ricordati di dargli da mangiare',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 16:15:22',
+                            date: '10/01/2020',
+                            time: '16:15',
                             text: 'Tutto fatto!',
                             status: 'received'
                         }
@@ -37,17 +42,20 @@ function initVue() {
                     visible: true,
                     messages: [
                         {
-                            date: '20/03/2020 16:30:00',
+                            date: '20/03/2020',
+                            time: '16:14',
                             text: 'Ciao come stai?',
                             status: 'sent'
                         },
                         {
-                            date: '20/03/2020 16:30:55',
+                            date: '20/03/2020',
+                            time: '16:30',
                             text: 'Bene grazie! Stasera ci vediamo?',
                             status: 'received'
                         },
                         {
-                            date: '20/03/2020 16:35:00',
+                            date: '20/03/2020',
+                            time: '16:35',
                             text: 'Mi piacerebbe ma devo andare a fare la spesa.sdadasdasdasdadasd',
                             status: 'sent'
                         }
@@ -59,17 +67,20 @@ function initVue() {
                     visible: true,
                     messages: [
                         {
-                            date: '28/03/2020 10:10:40',
+                            date: '28/03/2020',
+                            time: '10:10',
                             text: 'La Marianna va in campagna',
                             status: 'received'
                         },
                         {
-                            date: '28/03/2020 10:20:10',
+                            date: '28/03/2020',
+                            time: '10:20',
                             text: 'Sicuro di non aver sbagliato chat?',
                             status: 'sent'
                         },
                         {
-                            date: '28/03/2020 16:15:22',
+                            date: '28/03/2020',
+                            time: '16:15',
                             text: 'Ah scusa!',
                             status: 'received'
                         }
@@ -81,12 +92,14 @@ function initVue() {
                     visible: true,
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
+                            date: '10/01/2020',
+                            time: '15:30',
                             text: 'Lo sai che ha aperto una nuova pizzeria?',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 15:50:00',
+                            date: '10/01/2020',
+                            time: '15:50',
                             text: 'Si, ma preferirei andare al cinema',
                             status: 'received'
                         }
@@ -103,21 +116,26 @@ function initVue() {
       },
       myNewMess: function () {
         const today = new Date();
-        const date = today.getDate() + '/0' + today.getMonth() + '/' + today.getFullYear() + ' ' + today.getHours() + ":" + today.getUTCMinutes() + ':' + today.getSeconds();
+        const time = today.getHours() + ":" + today.getUTCMinutes();
         this.newMessage["text"] = this.myText;
-        this.newMessage["date"] = date;
+        this.newMessage["time"] = time;
         this.activeContact.messages.push({...this.newMessage});
         this.myText="";
         setTimeout(this.answerMess, 1000);
       },
       answerMess: function () {
         const today = new Date();
-        const date = today.getDate() + '/0' + today.getMonth() + '/' + today.getFullYear() + ' ' + today.getHours() + ":" + today.getUTCMinutes() + ':' + today.getSeconds();
-        this.newAnswer["date"] = date;
+        const time = today.getHours() + ":" + today.getUTCMinutes();
+        this.newAnswer["time"] = time;
         this.activeContact.messages.push({...this.newAnswer});
+      },
+      filterContacts: function() {
+        const filter = this.contacts.filter((element, index) => this.contacts[index].name.toLowerCase().includes(this.search));
+        return filter;
+      },
+      deleteMess: function (index) {
+        this.activeContact.messages.splice(index,1);
       }
-
-
 
     }
 

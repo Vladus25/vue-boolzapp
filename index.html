@@ -62,14 +62,14 @@
           <div class="container-search">
             <div class="search">
               <i class="fas fa-search"></i>
-              <input type="text" name="" value="" placeholder="Search or start new chat">
+              <input type="text" name="" value="" placeholder="Search or start new chat" v-model="search">
             </div>
           </div>
 
           <!-- Chat con miei Contatti -->
           <div class="container-chat">
             <ul>
-              <li v-for="(contact, index) in contacts" @click="getContact(index)">
+              <li  v-for="(contact, index) in filterContacts()" @click="getContact(index)">
 
                 <div class="img-chat">
                   <img :src="contact.avatar" alt="">
@@ -79,11 +79,11 @@
 
                   <div class="name-date">
                     <h4>{{contact.name}}</h4>
-                    <p>{{contact.messages[contact.messages.length - 2].date.slice(10, 16)}}</p>
+                    <p>{{contact.messages[contact.messages.length - 1].time}}</p>
                   </div>
 
                   <div>
-                    <p>{{contact.messages[contact.messages.length -  1 ].text.slice(0, 45)}}</p>
+                    <p>{{contact.messages[contact.messages.length - 1].text.slice(0, 45)}}</p>
                   </div>
 
                 </div>
@@ -97,7 +97,7 @@
         </div>
 
         <!-- Menu di destra -->
-        <div class="right-menu">
+        <div v-if="activeContact" class="right-menu">
 
             <!-- Contatto corrente -->
             <div class="top-line border">
@@ -117,13 +117,17 @@
             </div>
 
             <!-- Messaggi con Contatto -->
-            <div v-for="message in activeContact.messages"  class="container-all-message">
+            <div v-for="(message, messageindex) in activeContact.messages"  class="container-all-message">
 
                 <div v-if="message.status == 'sent'">
                   <div class="message-out">
                     <div class="green">
                       <p>{{message.text}}</p>
-                      <p class="time">{{message.date.slice(10, 16)}} <img class="spunte" src="img/spunte.png" alt=""></p>
+                      <p class="time">{{message.time}} <img class="spunte" src="img/spunte.png" alt=""></p>
+                      <i class="fas fa-angle-down hide"></i>
+                      <div class="">
+                        <p @click="deleteMess(messageindex)">Delete Message</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -131,7 +135,11 @@
                 <div v-else class="message-in">
                   <div class="white">
                     <p>{{message.text}}</p>
-                    <p class="time">{{message.date.slice(10, 16)}} <img class="spunte" src="img/spunte.png" alt=""></p>
+                    <p class="time">{{message.time}} <img class="spunte" src="img/spunte.png" alt=""></p>
+                    <i class="fas fa-angle-down hide"></i>
+                    <div class="">
+                      <p @click="deleteMess(messageindex)">Delete Message</p>
+                    </div>
                   </div>
                 </div>
 
@@ -146,6 +154,10 @@
                 <i class="fas fa-microphone"></i>
               </div>
             </div>
+
+        </div>
+
+        <div v-else class="">
 
         </div>
 

@@ -253,6 +253,13 @@ body{
   margin: 0 5px;
 }
 
+.hide{
+  position: absolute;
+  top: 0;
+  right: 7px;
+}
+
+
 /* Scrivere nuovo messaggio */
 .telecommunication{
   display: flex;
@@ -279,6 +286,7 @@ body{
 
 /* CSS VUE */
 .white{
+  position: relative;
   font-size: 16px;
   margin: 20px 10% 0 10%;
   padding: 10px;
@@ -288,7 +296,12 @@ body{
   background-color: white;
 }
 
+.white:hover{
+  display: block;
+}
+
 .green{
+  position: relative;
   font-size: 16px;
   margin: 20px 10% 0 10%;
   padding: 10px;

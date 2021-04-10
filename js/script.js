@@ -5,7 +5,7 @@ function initVue() {
     el: '#app',
     data:{
             'myText': "",
-            'newMessage':{text:'', status:'sent'},
+            'newMessage':{text:'', status:'sent', date:''},
             'newAnswer':{text:'ok', status:'received'},
             'activeContact': false,
             'contacts': [
@@ -100,10 +100,26 @@ function initVue() {
 
       getContact: function (index) {
         this.activeContact=this.contacts[index];
+      },
+      myNewMess: function () {
+        const today = new Date();
+        const date = today.getDate() + '/0' + today.getMonth() + '/' + today.getFullYear() + ' ' + today.getHours() + ":" + today.getUTCMinutes() + ':' + today.getSeconds();
+        this.newMessage["text"] = this.myText;
+        this.newMessage["date"] = date;
+        this.activeContact.messages.push({...this.newMessage});
+        this.myText="";
+        setTimeout(this.answerMess, 1000);
+      },
+      answerMess: function () {
+        const today = new Date();
+        const date = today.getDate() + '/0' + today.getMonth() + '/' + today.getFullYear() + ' ' + today.getHours() + ":" + today.getUTCMinutes() + ':' + today.getSeconds();
+        this.newAnswer["date"] = date;
+        this.activeContact.messages.push({...this.newAnswer});
       }
 
-    }
 
+
+    }
 
   });
 

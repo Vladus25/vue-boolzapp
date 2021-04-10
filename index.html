@@ -83,7 +83,7 @@
                   </div>
 
                   <div>
-                    <p>{{contact.messages[contact.messages.length -  1 ].text.slice(0, 50)}}</p>
+                    <p>{{contact.messages[contact.messages.length -  1 ].text.slice(0, 45)}}</p>
                   </div>
 
                 </div>
@@ -142,7 +142,7 @@
               <div class="telecommunication">
                 <i class="far fa-grin"></i>
                 <i class="fas fa-paperclip"></i>
-                <input type="text" name="" value="" placeholder="Enter message">
+                <input type="text" name="" value="" placeholder="Enter message" v-model="myText" @keyup.enter="myNewMess">
                 <i class="fas fa-microphone"></i>
               </div>
             </div>

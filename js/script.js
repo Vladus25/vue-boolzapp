@@ -162,8 +162,8 @@ function initVue() {
 
     methods: {
 
-      getContact: function (index) {
-        this.activeContact=this.contacts[index];
+      getContact: function (contact) {
+        this.activeContact= contact;
       },
 
       myNewMess: function () {

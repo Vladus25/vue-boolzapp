@@ -69,13 +69,13 @@
           <!-- Chat con miei Contatti -->
           <div class="container-chat"  @click='notifications'>
             <ul>
-              <li v-for="(contact, index) in filterContacts()" @click="getContact(index)">
+              <li v-for="(contact) in filterContacts()" @click="getContact(contact)">
 
                 <div class="img-chat">
                   <img :src="contact.avatar" alt="">
                 </div>
 
-                <div class="info-chat">
+                <div v-if="(contact.messages.length > 0)" class="info-chat">
 
                   <div class="name-date">
                     <h4>{{contact.name}}</h4>
@@ -84,6 +84,18 @@
 
                   <div>
                     <p>{{contact.messages[contact.messages.length - 1].text.slice(0, 45)}}</p>
+                  </div>
+
+                </div>
+
+                <!-- Se non ci sono messaggi allora -->
+                <div v-else class="info-chat">
+
+                  <div class="name-date">
+                    <h4>{{contact.name}}</h4>
+                  </div>
+                  <div>
+                    <p>Message Clear</p>
                   </div>
 
                 </div>
@@ -135,7 +147,7 @@
                 <div v-else class="message-in">
                   <div class="white">
                     <p>{{message.text}}</p>
-                    <p class="time">{{message.time}} <img class="spunte" src="img/spunte.png" alt=""></p>
+                    <p class="time">{{message.time}}</p>
                     <i class="fas fa-angle-down hide"></i>
                     <div class="delete-box">
                       <p @click="deleteMess(messageindex)">Delete Message</p>

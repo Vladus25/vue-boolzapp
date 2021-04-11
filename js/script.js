@@ -12,10 +12,63 @@ function initVue() {
             'newAnswer':{text:'ok', status:'received'},
             'activeContact': false,
             'contacts': [
+              {
+                  name: 'Olga',
+                  avatar: 'img/img-5.jpg',
+                  messages: [
+                      {
+                          date: '11/04/2020',
+                          time: '11:30',
+                          text: 'Ciao Olga, oggi ci sarà un recap?)',
+                          status: 'sent'
+                      },
+                      {
+                          date: '11/04/2020',
+                          time: '12:00',
+                          text: 'Perche tanti non hanno capito proprio Vue((',
+                          status: 'sent'
+                      },
+                      {
+                          date: '11/04/2020',
+                          time: '13:17',
+                          text: 'Certo, alle 16:00 io e Gianluca facciamo un piccolo recap)',
+                          status: 'received'
+                      },
+                      {
+                          date: '11/04/2020',
+                          time: '13:45',
+                          text: 'Ottimo)',
+                          status: 'sent'
+                      }
+                  ],
+              },
+              {
+                  name: 'Gianluca',
+                  avatar: 'img/img-6.jpg',
+                  messages: [
+                      {
+                          date: '12/04/2020',
+                          time: '14:20',
+                          text: 'Ciao Vlad, hai fatto qualche errore nel esercizio boolzapp',
+                          status: 'received'
+                      },
+                      {
+                          date: '12/04/2020',
+                          time: '14:50',
+                          text: 'Entri nella stanza privata e discutiamo',
+                          status: 'received'
+                      },
+                      {
+                          date: '12/04/2020',
+                          time: '15:15',
+                          text: 'Ciao Gianluca, ok tra 2m vengo)',
+                          status: 'sent'
+                      },
+                  ],
+              },
                 {
                     name: 'Jusy',
                     avatar: 'img/img-1.jpg',
-                    visible: true,
                     messages: [
                         {
                             date: '10/01/2020',
@@ -40,7 +93,6 @@ function initVue() {
                 {
                     name: 'Adrian',
                     avatar: 'img/img-2.jpg',
-                    visible: true,
                     messages: [
                         {
                             date: '20/03/2020',
@@ -65,7 +117,6 @@ function initVue() {
                 {
                     name: 'Samuela',
                     avatar: 'img/img-3.jpg',
-                    visible: true,
                     messages: [
                         {
                             date: '28/03/2020',
@@ -90,7 +141,6 @@ function initVue() {
                 {
                     name: 'Luisa',
                     avatar: 'img/img-4.jpg',
-                    visible: true,
                     messages: [
                         {
                             date: '10/01/2020',
@@ -115,28 +165,33 @@ function initVue() {
       getContact: function (index) {
         this.activeContact=this.contacts[index];
       },
+
       myNewMess: function () {
         const today = new Date();
-        const time = today.getHours() + ":" + today.getUTCMinutes();
+        const time = today.getHours() + ":" + today.getMinutes();
         this.newMessage["text"] = this.myText;
         this.newMessage["time"] = time;
         this.activeContact.messages.push({...this.newMessage});
         this.myText="";
         setTimeout(this.answerMess, 1000);
       },
+
       answerMess: function () {
         const today = new Date();
-        const time = today.getHours() + ":" + today.getUTCMinutes();
+        const time = today.getHours() + ":" + today.getMinutes();
         this.newAnswer["time"] = time;
         this.activeContact.messages.push({...this.newAnswer});
       },
+
       filterContacts: function() {
         const filter = this.contacts.filter((element, index) => this.contacts[index].name.toLowerCase().includes(this.search));
         return filter;
       },
+
       deleteMess: function (index) {
         this.activeContact.messages.splice(index,1);
       },
+
       notifications: function(){
         setTimeout(() => { this.visibility = true }, 2000);
       }

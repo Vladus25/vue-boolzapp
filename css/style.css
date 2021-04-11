@@ -14,6 +14,7 @@ body{
 }
 
 /* Contenitore Principale */
+
 .container{
   display: flex;
   width: 72%;
@@ -25,6 +26,7 @@ body{
 
 
 /* Menu di snistra */
+
 .left-menu{
   width: 30%;
   min-width: 350px;
@@ -71,6 +73,7 @@ body{
 }
 
 /* Avviso notifiche spente */
+
 .notifications{
   display: none;
   height: 80px;
@@ -141,10 +144,6 @@ body{
 
 /* Chat con miei Contatti */
 
-.container-chat{
-
-}
-
 .container-chat .img-chat img{
   width: 49px;
   height: 49px;
@@ -187,6 +186,7 @@ body{
 
 
 /* Menu di destra */
+
 .right-menu{
   position: relative;
   width: 70%;
@@ -198,6 +198,7 @@ body{
 }
 
 /* Contatto corrente */
+
 .current-contact{
   display: flex;
   justify-content: space-between;
@@ -226,6 +227,7 @@ body{
 }
 
 /* Messaggi con Contatto */
+
 .container-all-message{
   display: flex;
   flex-direction: column;
@@ -244,13 +246,33 @@ body{
 }
 
 .hide{
+  display: none;
   position: absolute;
   top: 0;
   right: 7px;
 }
 
+.delete-box{
+  display: none;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  top: 55px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 10px 10px;
+  z-index: 100;
+}
+
+.white:hover .delete-box, .green:hover .delete-box  {
+  display: block;
+}
+
+.white:hover .hide, .green:hover .hide  {
+  display: block;
+}
 
 /* Scrivere nuovo messaggio */
+
 .down-line{
   position: absolute;
   left: 0;
@@ -283,6 +305,7 @@ body{
 }
 
 /* Prima del chat */
+
 .splash-screen{
   display: flex;
   flex-direction: column;
@@ -333,6 +356,7 @@ body{
 }
 
 /* CSS VUE */
+
 .white{
   position: relative;
   font-size: 16px;

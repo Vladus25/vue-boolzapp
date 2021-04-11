@@ -69,7 +69,7 @@
           <!-- Chat con miei Contatti -->
           <div class="container-chat"  @click='notifications'>
             <ul>
-              <li  v-for="(contact, index) in filterContacts()" @click="getContact(index)">
+              <li v-for="(contact, index) in filterContacts()" @click="getContact(index)">
 
                 <div class="img-chat">
                   <img :src="contact.avatar" alt="">
@@ -125,7 +125,7 @@
                       <p>{{message.text}}</p>
                       <p class="time">{{message.time}} <img class="spunte" src="img/spunte.png" alt=""></p>
                       <i class="fas fa-angle-down hide"></i>
-                      <div>
+                      <div class="delete-box">
                         <p @click="deleteMess(messageindex)">Delete Message</p>
                       </div>
                     </div>
@@ -137,7 +137,7 @@
                     <p>{{message.text}}</p>
                     <p class="time">{{message.time}} <img class="spunte" src="img/spunte.png" alt=""></p>
                     <i class="fas fa-angle-down hide"></i>
-                    <div>
+                    <div class="delete-box">
                       <p @click="deleteMess(messageindex)">Delete Message</p>
                     </div>
                   </div>

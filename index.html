@@ -43,7 +43,7 @@
           </div>
 
           <!-- Avviso notifiche spente -->
-          <div class="notifications">
+          <div class="notifications" :class="{dismod: visibility}" >
             <div class="container-notifications">
 
               <div class="i-notific">
@@ -67,7 +67,7 @@
           </div>
 
           <!-- Chat con miei Contatti -->
-          <div class="container-chat">
+          <div class="container-chat"  @click='notifications'>
             <ul>
               <li  v-for="(contact, index) in filterContacts()" @click="getContact(index)">
 
@@ -100,24 +100,24 @@
         <div v-if="activeContact" class="right-menu">
 
             <!-- Contatto corrente -->
-            <div class="top-line border">
-              <div class="current-contact">
+              <div class="top-line border">
+                <div class="current-contact">
 
-                <div class="contact-info">
-                  <img :src="activeContact.avatar" alt="">
-                  <h4>{{activeContact.name}}</h4>
+                  <div class="contact-info">
+                    <img :src="activeContact.avatar" alt="">
+                    <h4>{{activeContact.name}}</h4>
+                  </div>
+
+                  <div class="contact-info-2">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                  </div>
+
                 </div>
-
-                <div class="contact-info-2">
-                  <i class="fas fa-search"></i>
-                  <i class="fas fa-ellipsis-v"></i>
-                </div>
-
               </div>
-            </div>
 
-            <!-- Messaggi con Contatto -->
-            <div v-for="(message, messageindex) in activeContact.messages"  class="container-all-message">
+              <!-- Messaggi con Contatto -->
+              <div v-for="(message, messageindex) in activeContact.messages"  class="container-all-message">
 
                 <div v-if="message.status == 'sent'">
                   <div class="message-out">
@@ -125,7 +125,7 @@
                       <p>{{message.text}}</p>
                       <p class="time">{{message.time}} <img class="spunte" src="img/spunte.png" alt=""></p>
                       <i class="fas fa-angle-down hide"></i>
-                      <div class="">
+                      <div>
                         <p @click="deleteMess(messageindex)">Delete Message</p>
                       </div>
                     </div>
@@ -137,12 +137,11 @@
                     <p>{{message.text}}</p>
                     <p class="time">{{message.time}} <img class="spunte" src="img/spunte.png" alt=""></p>
                     <i class="fas fa-angle-down hide"></i>
-                    <div class="">
+                    <div>
                       <p @click="deleteMess(messageindex)">Delete Message</p>
                     </div>
                   </div>
                 </div>
-
             </div>
 
             <!-- Scrivere nuovo messaggio -->
@@ -155,10 +154,19 @@
               </div>
             </div>
 
+
         </div>
 
-        <div v-else class="">
-
+        <!-- Prima del chat -->
+        <div v-else class="splash-screen">
+          <div class="container-screen">
+            <img src="img/123.png" alt="">
+            <p class="big-size">Keep your phone connected</p>
+            <p class="warning">WhatsApp connects to your phone to sync messages. To reduce data usage, connect your phone to Wi-Fi.</p>
+            <p>
+              <i class="fas fa-laptop"></i> WhatsApp is available for Windows. <a href="https://www.whatsapp.com/download">Get it here.</a>
+            </p>
+          </div>
         </div>
 
       </div>

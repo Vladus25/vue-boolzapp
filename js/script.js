@@ -7,6 +7,7 @@ function initVue() {
             'myText': "",
             'search': "",
             'showMenu': false,
+            'visibility': false,
             'newMessage':{text:'', status:'sent', time:''},
             'newAnswer':{text:'ok', status:'received'},
             'activeContact': false,
@@ -135,6 +136,9 @@ function initVue() {
       },
       deleteMess: function (index) {
         this.activeContact.messages.splice(index,1);
+      },
+      notifications: function(){
+        setTimeout(() => { this.visibility = true }, 2000);
       }
 
     }
@@ -142,6 +146,7 @@ function initVue() {
   });
 
 }
+
 
 function init() {
   initVue();

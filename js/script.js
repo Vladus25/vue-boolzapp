@@ -10,7 +10,7 @@ function initVue() {
             'visibility': false,
             'newMessage':{text:'', status:'sent', time:''},
             'newAnswer':{text:'ok', status:'received'},
-            'activeContact': false,
+            'activeContact': '',
             'contacts': [
               {
                   name: 'Olga',

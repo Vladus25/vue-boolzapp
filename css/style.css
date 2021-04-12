@@ -396,3 +396,7 @@ body{
 .dismod{
   display: block;
 }
+
+.grey-click{
+  background-color: rgb(214, 210, 210);
+}

@@ -53,10 +53,10 @@ body{
 }
 
 .my-logo img{
-  width: 75px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  padding: 10px 16px;
+  margin: 5px 15px;
   cursor: pointer;
 }
 
@@ -368,8 +368,8 @@ body{
   background-color: white;
 }
 
-.white:hover{
-  display: block;
+.white p{
+  word-wrap: break-word;
 }
 
 .green{
@@ -381,6 +381,10 @@ body{
   max-width: 35%;
   min-width: 150px;
   background-color: rgb(220, 250, 198);
+}
+
+.green p{
+  word-wrap: break-word;
 }
 
 .message-in{
@@ -399,4 +403,5 @@ body{
 
 .grey-click{
   background-color: rgb(214, 210, 210);
+  z-index: 150px;
 }

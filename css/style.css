@@ -188,7 +188,8 @@ body{
 /* Menu di destra */
 
 .right-menu{
-  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 70%;
   min-width: 400px;
   min-height: 650px;
@@ -231,6 +232,8 @@ body{
 .container-all-message{
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  overflow: auto;
 }
 
 .time{
@@ -274,9 +277,6 @@ body{
 /* Scrivere nuovo messaggio */
 
 .down-line{
-  position: absolute;
-  left: 0;
-  bottom: 0;
   height: 60px;
   width: 100%;
   background-color: #EDEDED;

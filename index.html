@@ -129,28 +129,30 @@
               </div>
 
               <!-- Messaggi con Contatto -->
-              <div v-for="(message, messageindex) in activeContact.messages"  class="container-all-message">
+              <div id="scroll-messages" class="container-all-message">
+                <div v-for="(message, messageindex) in activeContact.messages">
 
-                <div v-if="message.status == 'sent'">
-                  <div class="message-out">
-                    <div class="green">
+                  <div v-if="message.status == 'sent'">
+                    <div class="message-out">
+                      <div class="green">
+                        <p>{{message.text}}</p>
+                        <p class="time">{{message.time}} <img class="spunte" src="img/spunte.png" alt=""></p>
+                        <i class="fas fa-angle-down hide"></i>
+                        <div class="delete-box">
+                          <p @click="deleteMess(messageindex)">Delete Message</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div v-else class="message-in">
+                    <div class="white">
                       <p>{{message.text}}</p>
-                      <p class="time">{{message.time}} <img class="spunte" src="img/spunte.png" alt=""></p>
+                      <p class="time">{{message.time}}</p>
                       <i class="fas fa-angle-down hide"></i>
                       <div class="delete-box">
                         <p @click="deleteMess(messageindex)">Delete Message</p>
                       </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div v-else class="message-in">
-                  <div class="white">
-                    <p>{{message.text}}</p>
-                    <p class="time">{{message.time}}</p>
-                    <i class="fas fa-angle-down hide"></i>
-                    <div class="delete-box">
-                      <p @click="deleteMess(messageindex)">Delete Message</p>
                     </div>
                   </div>
                 </div>

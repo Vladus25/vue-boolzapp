@@ -178,14 +178,17 @@ function initVue() {
         this.newMessage["time"] = time;
         this.activeContact.messages.push({...this.newMessage});
         this.myText="";
-        setTimeout(this.answerMess, 1000);
+        this.answerMess();
       },
 
       answerMess: function () {
         const today = new Date();
         const time = today.getHours() + ":" + today.getMinutes();
         this.newAnswer["time"] = time;
-        this.activeContact.messages.push({...this.newAnswer});
+        const toReply = this.activeContact;
+        setTimeout(()=>{
+          toReply.messages.push({...this.newAnswer});
+        }, 1000)
       },
 
       filterContacts: function() {
